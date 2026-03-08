@@ -23,5 +23,8 @@
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
     "typescript": "^5.4.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
