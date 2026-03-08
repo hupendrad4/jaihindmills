@@ -1,0 +1,252 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Poppins', system-ui, sans-serif;
+    background-color: #FDF5E6;
+    color: #1a1a1a;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  input, textarea, select {
+    font-family: 'Poppins', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  /* Buttons */
+  .btn-primary {
+    @apply bg-crimson text-white px-6 py-2.5 rounded-md font-semibold text-sm hover:bg-crimson-dark active:scale-95 transition-all duration-200 inline-flex items-center gap-2;
+  }
+
+  .btn-outline {
+    @apply border-2 border-crimson text-crimson px-6 py-2.5 rounded-md font-semibold text-sm hover:bg-crimson hover:text-white active:scale-95 transition-all duration-200 inline-flex items-center gap-2;
+  }
+
+  .btn-gold {
+    @apply bg-gold text-white px-6 py-2.5 rounded-md font-semibold text-sm hover:bg-gold-light active:scale-95 transition-all duration-200 inline-flex items-center gap-2;
+  }
+
+  .btn-teal {
+    @apply bg-teal text-white px-6 py-2.5 rounded-md font-semibold text-sm hover:bg-teal-light active:scale-95 transition-all duration-200 inline-flex items-center gap-2;
+  }
+
+  .btn-ghost {
+    @apply text-primary font-semibold text-sm hover:text-crimson active:scale-95 transition-all duration-200 inline-flex items-center gap-2;
+  }
+
+  /* Cards */
+  .card-product {
+    @apply bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden cursor-pointer;
+  }
+
+  /* Section Headings */
+  .section-title {
+    @apply font-serif text-3xl lg:text-4xl font-bold text-primary text-center;
+  }
+
+  .section-subtitle {
+    @apply text-gray-500 text-center mt-2 font-sans text-sm;
+  }
+
+  .divider-gold {
+    @apply flex items-center justify-center gap-2 my-4;
+  }
+
+  .divider-gold::before,
+  .divider-gold::after {
+    content: '';
+    @apply flex-1 h-px bg-gold/30 max-w-24;
+  }
+
+  /* Form inputs */
+  .form-input {
+    @apply w-full border border-gray-200 rounded-lg px-4 py-3 text-sm font-sans focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all duration-200 bg-white;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-gray-700 mb-1.5;
+  }
+
+  /* Badge */
+  .badge-new {
+    @apply bg-teal text-white text-xs font-bold px-2.5 py-1 rounded-full;
+  }
+
+  .badge-best {
+    @apply bg-gold text-white text-xs font-bold px-2.5 py-1 rounded-full;
+  }
+
+  .badge-sale {
+    @apply bg-crimson text-white text-xs font-bold px-2.5 py-1 rounded-full;
+  }
+
+  /* Cultural pattern overlay */
+  .cultural-bg {
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C9910A' fill-opacity='0.07'%3E%3Ccircle cx='40' cy='40' r='30'/%3E%3Ccircle cx='40' cy='40' r='20'/%3E%3Ccircle cx='40' cy='40' r='10'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .mandala-bg {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C9910A' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  /* Product image zoom effect */
+  .img-zoom {
+    @apply overflow-hidden;
+  }
+
+  .img-zoom img {
+    @apply transition-transform duration-500;
+  }
+
+  .img-zoom:hover img {
+    @apply scale-105;
+  }
+
+  /* Nav link active */
+  .nav-link {
+    @apply text-white/90 hover:text-white font-medium text-sm transition-colors duration-200 relative;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-200;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    @apply w-full;
+  }
+
+  .nav-link.active {
+    @apply text-gold;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #C9910A, #E5A90F, #C9910A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .border-gradient-gold {
+    border-image: linear-gradient(135deg, #C9910A, #E5A90F) 1;
+  }
+}
+
+/* Page transitions */
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.3s ease;
+}
+
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+/* Toast animations */
+.toast-enter-active,
+.toast-leave-active {
+  transition: all 0.3s ease;
+}
+
+.toast-enter-from,
+.toast-leave-to {
+  opacity: 0;
+  transform: translateX(100px);
+}
+
+/* Slide down for mobile menu */
+.menu-enter-active,
+.menu-leave-active {
+  transition: all 0.3s ease;
+}
+
+.menu-enter-from,
+.menu-leave-to {
+  opacity: 0;
+  max-height: 0;
+  transform: translateY(-10px);
+}
+
+.menu-enter-to,
+.menu-leave-from {
+  opacity: 1;
+  max-height: 500px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FDF5E6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8B1635;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A82040;
+}
+
+/* Range input styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: #EDD8BC;
+  border-radius: 2px;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #BE1F3E;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 0 2px white, 0 0 0 3px #BE1F3E;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: #BE1F3E;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+}
+
+/* Gold horizontal rule */
+.hr-gold {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #C9910A, transparent);
+}
